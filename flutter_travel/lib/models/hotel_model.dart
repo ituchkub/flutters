@@ -1,0 +1,40 @@
+class Hotel {
+  String imageUrl;
+  String name;
+  String address;
+  int price;
+
+  Hotel({
+    this.imageUrl,
+    this.name,
+    this.address,
+    this.price,
+  });
+}
+
+final List<Hotel> hotels = [
+  Hotel(
+    imageUrl: 'assets/foods/A1.jpg',
+    name: 'ข้าวพันผัก',
+    address: '404 Great St',
+    price: 175,
+  ),
+  Hotel(
+    imageUrl: 'assets/foods/A2.jpg',
+    name: 'ไข่ม้วน',
+    address: '404 Great St',
+    price: 175,
+  ),
+  Hotel(
+    imageUrl: 'assets/foods/A3.jpg',
+    name: 'ข้าวแคบ',
+    address: '404 Great St',
+    price: 300,
+  ),
+  Hotel(
+    imageUrl: 'assets/foods/A4.jpg',
+    name: 'ตำข้าวโพด',
+    address: '404 Great St',
+    price: 240,
+  ),
+];

@@ -6,12 +6,18 @@ import 'widget/category_list.dart';
 import 'widget/place_staggered_gridview.dart';
 import 'widget/search_input.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageScreenState createState() => _HomePageScreenState();
+}
+
+class _HomePageScreenState extends State<HomePage> {
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
-        
           backgroundColor: Theme.of(context).backgroundColor,
           appBar: buildAppBar(context),
           body: SingleChildScrollView(
@@ -37,7 +43,8 @@ class HomePage extends StatelessWidget {
                   height: 10,
                 ),
                 PlaceStaggerdFridView()
-              ]))),
+              ])),
+          bottomNavigationBar: buildBottomNavigationBar()),
     );
   }
 
@@ -65,6 +72,26 @@ class HomePage extends StatelessWidget {
             width: 36,
           ),
         )
+      ],
+    );
+  }
+
+  BottomNavigationBar buildBottomNavigationBar() {
+    return BottomNavigationBar(
+      showSelectedLabels: false, // <-- HERE
+      showUnselectedLabels: false,
+      type: BottomNavigationBarType.fixed,
+      currentIndex: _selectedIndex,
+      onTap: (value) {
+        setState(() {
+          _selectedIndex = value;
+        });
+      },
+      items: [
+        BottomNavigationBarItem(icon: Icon(Icons.apps_outlined), label: ""),
+        BottomNavigationBarItem(icon: Icon(Icons.analytics_rounded), label: ""),
+        BottomNavigationBarItem(icon: Icon(Icons.search), label: ""),
+        BottomNavigationBarItem(icon: Icon(Icons.assignment_ind), label: ""),
       ],
     );
   }

@@ -4,7 +4,7 @@ import 'package:travel_blog/model/travel.dart';
 
 class TravelBlog extends StatelessWidget {
   final _list = Travel.generateTravelBlog();
-  final _pageCtrl = PageController(viewportFraction: 0.9);
+  final _pageCtrl = PageController(viewportFraction: 0.99);
 
   @override
   Widget build(BuildContext context) {

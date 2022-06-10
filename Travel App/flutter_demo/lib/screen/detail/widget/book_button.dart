@@ -6,22 +6,25 @@ class BookButton extends StatelessWidget {
     return Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
       Container(),
       Container(
-        width: 150,
-        margin: EdgeInsets.only(bottom: 15),
-        padding: EdgeInsets.symmetric(horizontal: 30),
+        height: 40,
+        width: 50,
+        margin: EdgeInsets.only(bottom: 15, right: 30),
+        // padding: EdgeInsets.only(right: 30, bottom: 15),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-              primary: Theme.of(context).primaryColor,
+              primary: Theme.of(context).accentColor,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8))),
-          onPressed: () {},
+          onPressed: () {
+            print('5555');
+          },
           child: Container(
-              padding: EdgeInsets.symmetric(vertical: 14),
-              child: Text(
-                'นำทาง',
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-              )),
+              //    padding: EdgeInsets.symmetric(vertical: 8),
+              child: Icon(
+            Icons.near_me,
+            color: Colors.black54,
+            size: 20,
+          )),
         ),
       ),
     ]);

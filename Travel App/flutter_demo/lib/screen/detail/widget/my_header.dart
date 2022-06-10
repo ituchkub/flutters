@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 
 class MyHeader extends StatelessWidget {
-  final String imageUrl;
-
+  final List<String> imageUrl;
   MyHeader(this.imageUrl);
 
   @override
@@ -12,10 +11,23 @@ class MyHeader extends StatelessWidget {
     return Container(
       height: 300,
       width: double.infinity,
-      decoration: BoxDecoration(
-          image:
-              DecorationImage(image: AssetImage(imageUrl), fit: BoxFit.cover)),
+      // decoration: BoxDecoration(
+      //     image:
+      //         DecorationImage(image: AssetImage(imageUrl), fit: BoxFit.cover)),
       child: Stack(children: [
+        ListView.separated(
+            padding: EdgeInsets.all(0),
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              //  var travel = _list[index];
+              return Container(
+                width: 360,
+                child: Image.asset(imageUrl[index], fit: BoxFit.cover),
+              );
+            },
+            separatorBuilder: (_, index) => SizedBox(width: 3),
+            itemCount: imageUrl.length),
+
         Positioned(
             left: 15,
             top: MediaQuery.of(context).padding.top,
@@ -26,10 +38,11 @@ class MyHeader extends StatelessWidget {
               child: Container(
                   padding: EdgeInsets.only(left: 10, top: 5, bottom: 5),
                   decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.white60,
                       borderRadius: BorderRadius.circular(8)),
                   child: Icon(Icons.arrow_back_ios)),
             )),
+
         // Positioned(
         //     right: 20,
         //     bottom: 5,
@@ -47,12 +60,12 @@ class MyHeader extends StatelessWidget {
     );
   }
 
-  Widget buildImage(String urlImage, int index) => Container(
-        margin: EdgeInsets.symmetric(horizontal: 12),
-        color: Colors.grey,
-        child: Image.asset(
-          urlImage,
-          fit: BoxFit.cover,
-        ),
-      );
+  // Widget buildImage(String urlImage, int index) => Container(
+  //       margin: EdgeInsets.symmetric(horizontal: 12),
+  //       color: Colors.grey,
+  //       child: Image.asset(
+  //         urlImage,
+  //         fit: BoxFit.cover,
+  //       ),
+  //     );
 }

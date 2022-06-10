@@ -21,7 +21,7 @@ class PlaceItem extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 image: DecorationImage(
-                    image: AssetImage(place.imageUrl), fit: BoxFit.cover)),
+                    image: AssetImage(place.imageUrl[0]), fit: BoxFit.cover)),
           ),
           Container(
             height: place.height,

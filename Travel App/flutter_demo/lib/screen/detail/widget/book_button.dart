@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../map.dart';
+
 class BookButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class BookButton extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8))),
           onPressed: () {
-            print('5555');
+            MapUtilss.openMap(17.651524, 99.7807612);
           },
           child: Container(
               //    padding: EdgeInsets.symmetric(vertical: 8),

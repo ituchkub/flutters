@@ -5,11 +5,12 @@ import 'package:photo_view/photo_view_gallery.dart';
 class MyHeader extends StatelessWidget {
   final List<String> imageUrl;
   MyHeader(this.imageUrl);
-
+  final double expandedHeight = 300;
+  final double roundedContainerHeight = 50;
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: 360,
       width: double.infinity,
       // decoration: BoxDecoration(
       //     image:
@@ -21,13 +22,25 @@ class MyHeader extends StatelessWidget {
             itemBuilder: (context, index) {
               //  var travel = _list[index];
               return Container(
-                width: 360,
+                width: 380,
                 child: Image.asset(imageUrl[index], fit: BoxFit.cover),
               );
             },
             separatorBuilder: (_, index) => SizedBox(width: 3),
             itemCount: imageUrl.length),
-
+        Positioned(
+          top: expandedHeight - roundedContainerHeight+80,
+          left: 0,
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: roundedContainerHeight,
+            decoration: BoxDecoration(
+                color: Theme.of(context).backgroundColor,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30))),
+          ),
+        ),
         Positioned(
             left: 15,
             top: MediaQuery.of(context).padding.top,

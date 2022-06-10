@@ -8,7 +8,7 @@ class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 10),
+    //  margin: EdgeInsets.only(top: 10),
       padding: EdgeInsets.symmetric(horizontal: 30),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         // Text('รายละเอียด',

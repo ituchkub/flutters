@@ -9,9 +9,9 @@ class PageName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 15, bottom: 20, left: 30, right: 30),
+      padding: EdgeInsets.only(top: 0, bottom: 20, left: 30, right: 30),
       decoration: BoxDecoration(
-          color: Theme.of(context).accentColor,
+          color: Theme.of(context).backgroundColor,
           borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(36),
               bottomRight: Radius.circular(36))),

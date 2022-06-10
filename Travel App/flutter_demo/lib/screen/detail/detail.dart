@@ -4,6 +4,7 @@ import 'package:Travel_Utt/screen/detail/widget/my_header.dart';
 import 'package:flutter/material.dart';
 
 import 'widget/book_button.dart';
+import 'widget/check_out_card.dart';
 import 'widget/feature_list.dart';
 import 'widget/page_name.dart';
 
@@ -20,13 +21,13 @@ class DetailPage extends StatelessWidget {
         MyHeader(place.imageUrl),
         PageName(place.fulltitle, place.addredd),
         About(place.detail),
-        // SizedBox(
-        //   height: 20,
-        // ),
+        SizedBox(
+          height: 20,
+        ),
         //FeatureList(""),
-        BookButton()
+       // BookButton()
       ])),
-      // bottomNavigationBar: buildBottomNavigationBar()
+       bottomNavigationBar: CheckoutCard()
       // floatingActionButton: FloatingActionButton(
       //     onPressed: () {},
       //     backgroundColor:  Theme.of(context).accentColor,,

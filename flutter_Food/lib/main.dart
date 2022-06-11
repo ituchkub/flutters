@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:food_delivery_app/screens/home/home.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:nutrition_app/Screens/home/home.dart';
+import 'package:nutrition_app/constants.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,15 +11,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
+      title: 'Nutrition App',
       debugShowCheckedModeBanner: false,
-      title: 'Food Delivery App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: kPrimaryColor,
+        scaffoldBackgroundColor: kBackgroundColor,
+        textTheme: GoogleFonts.rubikTextTheme(Theme.of(context).textTheme)
       ),
-      home: HomePage(),
+      home: HomeScreen(),
     );
   }
 }

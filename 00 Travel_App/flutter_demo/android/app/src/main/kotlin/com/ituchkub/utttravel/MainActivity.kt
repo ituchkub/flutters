@@ -1,4 +1,4 @@
-package com.example.flutter_demo
+package com.ituchkub.utttravel
 
 import io.flutter.embedding.android.FlutterActivity
 

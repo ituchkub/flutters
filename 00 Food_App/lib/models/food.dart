@@ -48,7 +48,7 @@ class Food {
       (Food(
           'assets/images/dish2.png',
           'ขายดี No.2',
-          'ลูกตุยงาดำ',
+          'ขนมลูกตุยงาดำ',
           ' 5-10 Min',
           4.8,
           5,
@@ -65,7 +65,7 @@ class Food {
       (Food(
           'assets/images/dish4.png',
           'ขายดี No.3',
-          'ลูกตุยงาขาว',
+          'ขนมลูกตุยงาขาว',
           ' 5-10 Min',
           4.8,
           5,
@@ -82,7 +82,7 @@ class Food {
       (Food(
           'assets/images/dish3.png',
           'ขายดี No.4',
-          'ไข่หงส',
+          'ขนมไข่หงส์',
           ' 5-10 Min',
           4.8,
           5,

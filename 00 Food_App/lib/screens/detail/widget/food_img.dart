@@ -42,9 +42,12 @@ class FoodImg extends StatelessWidget {
                         offset: Offset(-1, 10),
                         blurRadius: 10)
                   ]),
-                  child: Image.asset(
-                    food.imgUrl,
-                    fit: BoxFit.cover,
+                  child: Hero(
+                    tag: 'Food_Pic${food.imgUrl}',
+                    child: Image.asset(
+                      food.imgUrl,
+                      fit: BoxFit.cover,
+                    ),
                   )),
             )
           ],

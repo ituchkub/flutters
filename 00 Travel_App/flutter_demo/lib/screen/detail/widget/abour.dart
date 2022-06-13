@@ -11,11 +11,11 @@ class About extends StatelessWidget {
     //  margin: EdgeInsets.only(top: 10),
       padding: EdgeInsets.symmetric(horizontal: 30),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        // Text('รายละเอียด',
-        //     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
-        SizedBox(
-          height: 5,
-        ),
+        //  Text('รายละเอียด',
+        //     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+        // SizedBox(
+        //   height: 5,
+        // ),
         Text(detail,
             textAlign: TextAlign.justify,
             style: TextStyle(

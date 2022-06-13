@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
 
 class PageName extends StatelessWidget {
@@ -24,7 +25,7 @@ class PageName extends StatelessWidget {
               children: [
                 Text(title,
                     style:
-                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                 SizedBox(
                   height: 5,
                 ),
@@ -37,25 +38,31 @@ class PageName extends StatelessWidget {
                       size: 15,
                       color: Colors.red,
                     ),
-                    Text(addredd, style: TextStyle(fontSize: 14))
+                    Text(addredd, style: TextStyle(fontSize: 16))
                   ],
                 )
 
                 // Text('subtitle', style: TextStyle(fontSize: 12))
               ],
             ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SvgPicture.asset(
-                  'assets/icons/star.svg',
-                  width: 15,
-                ),
-                SizedBox(
-                  width: 2,
-                ),
-                Text('4.5')
-              ],
+            Container(
+              padding: EdgeInsets.only(top: 5,bottom: 5,left: 10,right: 10),
+              decoration: BoxDecoration(color: Colors.blue.withOpacity(0.8),borderRadius: BorderRadius.circular(20)),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+
+                  Icon(Icons.star ,size: 16,color: Colors.white,),
+                  // SvgPicture.asset(
+                  //   'assets/icons/star.svg',
+                  //   width: 15,color: Colors.white,
+                  // ),
+                  SizedBox(
+                    width: 2,
+                  ),
+                  Text('4.8',style: TextStyle(color: Colors.white,fontSize: 15),)
+                ],
+              ),
             )
           ]),
     );

@@ -3,7 +3,8 @@ import 'package:Travel_Utt/screen/detail/widget/abour.dart';
 import 'package:Travel_Utt/screen/detail/widget/my_header.dart';
 import 'package:flutter/material.dart';
 
-import 'widget/book_button.dart';
+
+
 import 'widget/check_out_card.dart';
 import 'widget/feature_list.dart';
 import 'widget/page_name.dart';
@@ -21,11 +22,13 @@ class DetailPage extends StatelessWidget {
             child: Column(children: [
           MyHeader(place.imageUrl),
           PageName(place.fulltitle, place.addredd),
+         
+           FeatureList(""),
           About(place.detail),
           SizedBox(
             height: 30,
           ),
-          //FeatureList(""),
+         
           // BookButton()
         ])),
         Positioned(
@@ -36,15 +39,15 @@ class DetailPage extends StatelessWidget {
                 Navigator.of(context).pop();
               },
               child: Container(
-                  padding: EdgeInsets.only(left: 10, top: 5, bottom: 5),
+                  padding: EdgeInsets.only(left: 10, top: 10, bottom: 10),
                   decoration: BoxDecoration(
                       color: Colors.white60,
                       borderRadius: BorderRadius.circular(8)),
                   child: Icon(Icons.arrow_back_ios)),
             )),
       ]),
-
-      // bottomNavigationBar: CheckoutCard()
+    
+       bottomNavigationBar: CusNavigationBar(place)
       // floatingActionButton: FloatingActionButton(
       //     onPressed: () {},
       //     backgroundColor:  Theme.of(context).accentColor,,
@@ -71,7 +74,7 @@ class DetailPage extends StatelessWidget {
       items: [
         BottomNavigationBarItem(icon: Icon(Icons.apps_outlined), label: ""),
         BottomNavigationBarItem(icon: Icon(Icons.analytics_rounded), label: ""),
-        BottomNavigationBarItem(icon: Icon(Icons.search), label: ""),
+     
         BottomNavigationBarItem(icon: Icon(Icons.assignment_ind), label: ""),
       ],
     );

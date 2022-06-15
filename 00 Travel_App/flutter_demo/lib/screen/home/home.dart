@@ -16,8 +16,7 @@ class _HomePageScreenState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Scaffold(
+    return  Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
         appBar: buildAppBar(context),
         body: SingleChildScrollView(
@@ -52,7 +51,7 @@ class _HomePageScreenState extends State<HomePage> {
           PlaceStaggerdFridView()
         ])),
         //   bottomNavigationBar: buildBottomNavigationBar()
-      ),
+    
     );
   }
 
@@ -65,7 +64,7 @@ class _HomePageScreenState extends State<HomePage> {
           Text("ออกไป", style: TextStyle(color: Colors.black54, fontSize: 16)),
           Text(" เที่ยวกัน !.",
               style: TextStyle(
-                  color: Colors.black87,
+                  color: Colors.blue,
                   fontSize: 16,
                   fontWeight: FontWeight.bold)),
         ]),

@@ -39,11 +39,11 @@ class Food {
           "20",
           20,
           [
-            {'Noodle': 'assets/images/ingre1.png'},
-            {'egg': 'assets/images/ingre3.png'},
-            {'Shrimp': 'assets/images/ingre2.png'}
+            {'แป้ง': 'assets/images/in01.png'},
+            {'งาขาว': 'assets/images/in03.png'},
+             {'น้ำตาล': 'assets/images/in04.png'},
           ],
-          'Simply put, ramen is a Japanese',
+          '     ขนมวง เป็นขนมโบราณของชาวไทใหญ่ ทำขึ้นเพื่องานบุญ มีรูปร่างรูปร่างหน้าตาคล้ายกำไลหรือโดนัท ชุบด้วยน้ำตาลเคี่ยว โดยการคีบขนมวงชุบน้ำตาลอ้อยให้เคลือบทั่วด้านหนึ่ง วางพักให้เย็น น้ำตาลอ้อยจะเป็นเงาสวย',
           hightLight: true)),
       (Food(
           'assets/images/dish2.png',
@@ -56,11 +56,11 @@ class Food {
           "20",
           20,
           [
-            {'Noodle': 'assets/images/ingre1.png'},
-            {'egg': 'assets/images/ingre3.png'},
-            {'Shrimp': 'assets/images/ingre2.png'}
+          {'แป้ง': 'assets/images/in01.png'},
+            {'งาดำ': 'assets/images/in02.png'},
+             {'น้ำตาล': 'assets/images/in04.png'},
           ],
-          'Simply put, ramen is a Japanese',
+            '     ขนมลูกตุย บางคนก็เรียก ขนมไข่เต่า หรือไข่นก ทำจากแป้งข้าวเหนียว ถั่วซีกกวนกับน้ำตาล คลุกด้วยงาดำหรืองาขาวก็ได้ ทอดจนเหลือง  จะมีรสชาติหวาน กรอบนอก นุ่มใน กินตอนร้อนๆ บอกเลยฟินสุดๆ',
           hightLight: true)),
       (Food(
           'assets/images/dish4.png',
@@ -73,11 +73,11 @@ class Food {
           "20",
           20,
           [
-            {'Noodle': 'assets/images/ingre1.png'},
-            {'egg': 'assets/images/ingre3.png'},
-            {'Shrimp': 'assets/images/ingre2.png'}
+           {'แป้ง': 'assets/images/in01.png'},
+            {'งาขาว': 'assets/images/in03.png'},
+            {'น้ำตาล': 'assets/images/in04.png'},
           ],
-          'Simply put, ramen is a Japanese',
+          '     ขนมลูกตุย บางคนก็เรียก ขนมไข่เต่า หรือไข่นก ทำจากแป้งข้าวเหนียว ถั่วซีกกวนกับน้ำตาล คลุกด้วยงาดำหรืองาขาวก็ได้ ทอดจนเหลือง  จะมีรสชาติหวาน กรอบนอก นุ่มใน กินตอนร้อนๆ บอกเลยฟินสุดๆ',
           hightLight: true)),
       (Food(
           'assets/images/dish3.png',
@@ -90,11 +90,11 @@ class Food {
           "20",
           20,
           [
-            {'Noodle': 'assets/images/ingre1.png'},
-            {'egg': 'assets/images/ingre3.png'},
-            {'Shrimp': 'assets/images/ingre2.png'}
+           {'แป้ง': 'assets/images/in01.png'},
+            {'น้ำตาล': 'assets/images/in04.png'},
+            {'ถั่วเขียว': 'assets/images/in05.png'}
           ],
-          'Simply put, ramen is a Japanese',
+          '     ไข่หงส์ เป็นขนมไทยโบราญที่สืบทอดกันมาเป็นรุ่นสู่รุ่นมาอย่างยาวนาน ขนมไข่หงส์ทำมาจาก แป้งข้าวเหนียว สอดไส้ถั่วเขียวซีก เกลือ หอมแดง แล้วนำมาทอดจนเหลืองกรอบ รสชาติก็จะเค็มหวานผสมกลมกลืนกันลงตัว',
           hightLight: true))
     ];
   }

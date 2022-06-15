@@ -39,17 +39,17 @@ class PlaceItem extends StatelessWidget {
                       Colors.black87
                     ])),
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
+                 // crossAxisAlignment: CrossAxisAlignment.end,
+                 mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
                       place.title,
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold),
+                          fontSize: 17,
+                          fontWeight: FontWeight.normal),
                     )
                   ]),
             ),

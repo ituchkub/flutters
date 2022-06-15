@@ -23,7 +23,34 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: kBackground,
       body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        CustomAppBar(Icons.arrow_back_ios_new_outlined, Icons.search_outlined),
+        // CustomAppBar(Icons.arrow_back_ios_new_outlined, Icons.search_outlined),
+        Container(     
+          
+               
+          padding: EdgeInsets.only(
+            top: MediaQuery.of(context).padding.top+10,
+            left: 25,
+            right: 25,
+          ),
+          child:
+              Container(
+             
+                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                          Row(
+                
+                children: [Icon(Icons.location_on,size: 22,), Text('  UTTARADIT')],
+                          ),
+                          Container(
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Colors.white,
+                ),
+                child: Icon(Icons.menu),
+                          )
+                        ]),
+              ),
+        ),
         RestauranInfo(),
         FoodList(selected, (int index) {
           setState(() {

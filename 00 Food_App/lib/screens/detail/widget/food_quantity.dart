@@ -15,9 +15,9 @@ class FoodQuantity extends StatelessWidget {
       height: 40,
       child: Stack(children: [
         Align(
-          alignment: Alignment(-0.3, 0),
+          alignment: Alignment(-0.25, 0),
           child: Container(
-            width: 120,
+            width: 80,
             height: double.maxFinite,
             decoration: BoxDecoration(
                 color: Colors.grey.withOpacity(0.1),
@@ -41,7 +41,7 @@ class FoodQuantity extends StatelessWidget {
           alignment: Alignment(0.3, 0),
           child: Container(
             height: double.maxFinite,
-            width: 120,
+            width: 100,
             decoration: BoxDecoration(
                 color: kPrimartColor, borderRadius: BorderRadius.circular(30)),
             child: Row(
@@ -55,7 +55,7 @@ class FoodQuantity extends StatelessWidget {
                     padding: EdgeInsets.all(12),
                     decoration: BoxDecoration(
                         shape: BoxShape.circle, color: Colors.white),
-                    child: Text(food.quantity.toString()),
+                    child: Text('1', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
                   ),
                   Text(
                     '+',

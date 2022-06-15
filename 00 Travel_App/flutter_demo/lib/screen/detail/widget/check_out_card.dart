@@ -46,7 +46,7 @@ class CusNavigationBar extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8)),
               child: Icon(
                 Icons.favorite,
-                color: Colors.red,
+                color: Colors.red.withOpacity(0.9),
                 size: 25,
               ),
             ),

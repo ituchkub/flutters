@@ -6,7 +6,7 @@ class CategoryList extends StatefulWidget {
 }
 
 class _CategoryListState extends State<CategoryList> {
-  final categoryList = ['ทั้งหมด', 'สถานที่น่าสนใจ', 'อาหารพื้นเมือง'];
+  final categoryList = ['แนะนำ', 'สถานที่น่าสนใจ', 'วัฒนธรรมพื้นเมือง'];
   int currentSelected = 0;
 
   @override
@@ -30,7 +30,7 @@ class _CategoryListState extends State<CategoryList> {
                           ? FontWeight.bold
                           : FontWeight.w500,
                       color: currentSelected == index
-                          ? Theme.of(context).primaryColor
+                          ? Colors.blue
                           : Colors.grey),
                 ),
               ),

@@ -1,13 +1,22 @@
+import 'dart:ffi';
+
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/constants/colors.dart';
 import 'package:food_delivery_app/models/Food.dart';
 
-class FoodQuantity extends StatelessWidget {
+class FoodQuantity extends StatefulWidget {
   final Food food;
+
   FoodQuantity(this.food);
 
+  @override
+  State<FoodQuantity> createState() => _FoodQuantityState();
+}
+
+class _FoodQuantityState extends State<FoodQuantity> {
+  var forder = 1;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,7 +40,7 @@ class FoodQuantity extends StatelessWidget {
                 style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
               ),
               Text(
-                food.price,
+                widget.food.price,
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               )
             ]),
@@ -47,19 +56,40 @@ class FoodQuantity extends StatelessWidget {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text(
-                    '-',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (forder > 1) forder = forder - 1;
+                      });
+                      print(forder);
+                    },
+                    child: Text(
+                      '-',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
                   ),
                   Container(
                     padding: EdgeInsets.all(12),
                     decoration: BoxDecoration(
                         shape: BoxShape.circle, color: Colors.white),
-                    child: Text('1', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+                    child: Text(forder.toString(),
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.bold)),
                   ),
-                  Text(
-                    '+',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        forder = forder + 1;
+                      });
+
+                      print(forder);
+                    },
+                    child: Text(
+                      '+',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
                   )
                 ]),
           ),

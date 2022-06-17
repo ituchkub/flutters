@@ -45,10 +45,6 @@ class FoodItem extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                                 height: 1.5),
                           ),
-                          Icon(
-                            Icons.arrow_forward_ios_outlined,
-                            size: 15,
-                          )
                         ],
                       ),
                       Text(food.desc,
@@ -75,6 +71,19 @@ class FoodItem extends StatelessWidget {
                       )
                     ],
                   )),
+            ),
+            Container(
+              margin: EdgeInsets.only(right: 15),
+              width: 35,
+              height: 40,
+              // decoration: BoxDecoration(
+              //   color: kPrimartColor,
+              //   borderRadius: BorderRadius.circular(20),
+              // ),
+              child: Icon(
+                Icons.arrow_forward_ios_outlined,
+                size: 15,
+              ),
             )
           ],
         ));

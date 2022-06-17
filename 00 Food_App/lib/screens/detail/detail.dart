@@ -46,38 +46,51 @@ class DetailPage extends StatelessWidget {
                   child: Icon(Icons.arrow_back_ios)),
             )),
       ]),
-      // floatingActionButton: Container(
-      //     width: 100,
-      //     height: 56,
-      //     child: RawMaterialButton(
-      //       fillColor: kPrimartColor,
-      //       shape: RoundedRectangleBorder(
-      //         borderRadius: BorderRadius.circular(50),
-      //       ),
-      //       elevation: 2,
-      //       onPressed: () {},
-      //       child: Row(
-      //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      //           children: [
-      //             Icon(
-      //               Icons.shopping_bag_outlined,
-      //               color: Colors.black,
-      //               size: 30,
-      //             ),
-      //             Container(
-      //               padding: EdgeInsets.all(15),
-      //               decoration: BoxDecoration(
-      //                   color: Colors.white, shape: BoxShape.circle),
-      //               child: Text(
-      //                 food.quantity.toString(),
-      //                 style: TextStyle(
-      //                     fontSize: 18,
-      //                     color: Colors.black,
-      //                     fontWeight: FontWeight.bold),
-      //               ),
-      //             )
-      //           ]),
-      //     ))
+      //floatingActionButton: floatingButton(food: food)
     );
+  }
+}
+
+class floatingButton extends StatelessWidget {
+  const floatingButton({
+    Key? key,
+    required this.food,
+  }) : super(key: key);
+
+  final Food food;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        width: 100,
+        height: 56,
+        child: RawMaterialButton(
+          fillColor: kPrimartColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50),
+          ),
+          elevation: 2,
+          onPressed: () {},
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+            Icon(
+              Icons.shopping_bag_outlined,
+              color: Colors.black,
+              size: 30,
+            ),
+            Container(
+              padding: EdgeInsets.all(15),
+              decoration:
+                  BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+              child: Text(
+                food.quantity.toString(),
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),
+              ),
+            )
+          ]),
+        ));
   }
 }

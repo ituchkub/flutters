@@ -21,81 +21,119 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kBackground,
-      body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        // CustomAppBar(Icons.arrow_back_ios_new_outlined, Icons.search_outlined),
-        Container(     
-          
-               
-          padding: EdgeInsets.only(
-            top: MediaQuery.of(context).padding.top+10,
-            left: 25,
-            right: 25,
+        backgroundColor: kBackground,
+        body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          //CustomAppBar(Icons.arrow_back_ios_new_outlined, Icons.search_outlined),
+          CustomAppBars(),
+          RestauranInfo(),
+          FoodList(selected, (int index) {
+            setState(() {
+              selected = index;
+            });
+            pageController.jumpTo(index.toDouble());
+          }, restaurant),
+          Expanded(
+              child: FoodListView(selected, (int index) {
+            setState(() {
+              selected = index;
+            });
+          }, pageController, restaurant)),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 25),
+            height: 60,
+            child: SmoothPageIndicator(
+                controller: pageController,
+                count: restaurant.menu.length,
+                effect: CustomizableEffect(
+                    dotDecoration: DotDecoration(
+                        width: 8,
+                        height: 8,
+                        color: Colors.grey.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(8)),
+                    activeDotDecoration: DotDecoration(
+                      width: 10,
+                      height: 10,
+                      color: kBackground,
+                      borderRadius: BorderRadius.circular(8),
+                      dotBorder:
+                          DotBorder(color: kPrimartColor, padding: 2, width: 2),
+                    )),
+                onDotClicked: (index) => pageController.jumpToPage(index)),
+          )
+        ]),
+        floatingActionButton: floatingButton());
+  }
+}
+
+class floatingButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        //  margin: EdgeInsets.only(right: 5),
+        width: 85,
+        height: 50,
+        child: RawMaterialButton(
+          fillColor: kPrimartColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50),
           ),
-          child:
-              Container(
-             
-                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                          Row(
-                
-                children: [Icon(Icons.location_on,size: 22,), Text('  UTTARADIT')],
-                          ),
-                          Container(
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: Colors.white,
-                ),
-                child: Icon(Icons.menu),
-                          )
-                        ]),
-              ),
-        ),
-        RestauranInfo(),
-        FoodList(selected, (int index) {
-          setState(() {
-            selected = index;
-          });
-          pageController.jumpTo(index.toDouble());
-        }, restaurant),
-        Expanded(
-            child: FoodListView(selected, (int index) {
-          setState(() {
-            selected = index;
-          });
-        }, pageController, restaurant)),
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 25),
-          height: 60,
-          child: SmoothPageIndicator(
-              controller: pageController,
-              count: restaurant.menu.length,
-              effect: CustomizableEffect(
-                  dotDecoration: DotDecoration(
-                      width: 8,
-                      height: 8,
-                      color: Colors.grey.withOpacity(0.5),
-                      borderRadius: BorderRadius.circular(8)),
-                  activeDotDecoration: DotDecoration(
-                    width: 10,
-                    height: 10,
-                    color: kBackground,
-                    borderRadius: BorderRadius.circular(8),
-                    dotBorder:
-                        DotBorder(color: kPrimartColor, padding: 2, width: 2),
-                  )),
-              onDotClicked: (index) => pageController.jumpToPage(index)),
-        )
-      ]),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          backgroundColor: kPrimartColor,
           elevation: 2,
-          child: Icon(
-            Icons.shopping_bag_outlined,
-            color: Colors.black,
-            size: 30,
-          )),
+          onPressed: () {},
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+            Icon(
+              Icons.shopping_bag_outlined,
+              color: Colors.black,
+              size: 25,
+            ),
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration:
+                  BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+              child: Text(
+                '9',
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),
+              ),
+            )
+          ]),
+        ));
+  }
+}
+
+class CustomAppBars extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(
+        top: MediaQuery.of(context).padding.top + 10,
+        left: 25,
+        right: 25,
+      ),
+      child: Container(
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          Row(
+            children: [
+              Icon(
+                Icons.location_on,
+                size: 22,
+              ),
+              Text('  UTTARADIT')
+            ],
+          ),
+          Container(
+            padding: EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: Colors.white,
+            ),
+            child: Icon(Icons.menu),
+          )
+        ]),
+      ),
     );
   }
 }

@@ -10,10 +10,13 @@ import 'widget/food_detail.dart';
 
 class DetailPage extends StatelessWidget {
   final Food food;
+
   DetailPage(this.food);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      
       backgroundColor: kPrimartColor,
       body: Stack(children: [
         SingleChildScrollView(
@@ -27,7 +30,8 @@ class DetailPage extends StatelessWidget {
               height: 50,
             ),
             FoodImg(food),
-            FoodDetail(food)
+            FoodDetail(food),
+           
           ]),
         ),
         Positioned(
@@ -45,52 +49,28 @@ class DetailPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8)),
                   child: Icon(Icons.arrow_back_ios)),
             )),
+        
       ]),
-      //floatingActionButton: floatingButton(food: food)
+      //  floatingActionButton: floatingButton(food: food),
+      //  bottomNavigationBar: buildBottomNavigationBar(),
     );
   }
-}
 
-class floatingButton extends StatelessWidget {
-  const floatingButton({
-    Key? key,
-    required this.food,
-  }) : super(key: key);
-
-  final Food food;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        width: 100,
-        height: 56,
-        child: RawMaterialButton(
-          fillColor: kPrimartColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50),
-          ),
-          elevation: 2,
-          onPressed: () {},
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            Icon(
-              Icons.shopping_bag_outlined,
-              color: Colors.black,
-              size: 30,
-            ),
-            Container(
-              padding: EdgeInsets.all(15),
-              decoration:
-                  BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-              child: Text(
-                food.quantity.toString(),
-                style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold),
-              ),
-            )
-          ]),
-        ));
+  BottomNavigationBar buildBottomNavigationBar() {
+    return BottomNavigationBar(
+      showSelectedLabels: false, // <-- HERE
+      showUnselectedLabels: false,
+      type: BottomNavigationBarType.fixed,
+      currentIndex: 0,
+      // onTap: (value) {
+      //   setState(() {
+      //     _selectedIndex = value;
+      //   });
+      // },
+      items: [
+        BottomNavigationBarItem(icon: Icon(Icons.apps_outlined), label: ""),
+        BottomNavigationBarItem(icon: Icon(Icons.analytics_rounded), label: ""),
+      ],
+    );
   }
 }

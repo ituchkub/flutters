@@ -1,13 +1,19 @@
+import 'dart:async';
+
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/constants/colors.dart';
+import 'package:food_delivery_app/models/food.dart';
 import 'package:food_delivery_app/models/restaurant.dart';
 import 'package:food_delivery_app/screens/home/widget/food_list.dart';
 import 'package:food_delivery_app/screens/home/widget/food_list_view.dart';
 import 'package:food_delivery_app/screens/home/widget/restaurant_info.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import '../../models/StoreClass.dart';
+import '../../models/globals.dart';
 import '../../widgets/custom_app_bart.dart';
+import '../cart/cart.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -16,14 +22,38 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var selected = 0;
+
   final pageController = PageController();
   final restaurant = Restaurant.gennetateRestaurant();
+
+  @override
+  void initState() {
+    super.initState();
+
+    // for (var age in restaurant.menu.values) {
+    //   for (var ages in age) {
+    //     asyncInitState(ages.name);
+    //   }
+    // }
+
+Timer.periodic(new Duration(milliseconds: 300), (timer) {
+  setState(() {
+    
+  });
+});
+  }
+
+  // void asyncInitState(String Name) async {
+  //   purchase = int.parse(await LoadData(Name)) + purchase;
+
+  //   setState(() {});
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: kBackground,
         body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          //CustomAppBar(Icons.arrow_back_ios_new_outlined, Icons.search_outlined),
           CustomAppBars(),
           RestauranInfo(),
           FoodList(selected, (int index) {
@@ -61,45 +91,44 @@ class _HomePageState extends State<HomePage> {
                 onDotClicked: (index) => pageController.jumpToPage(index)),
           )
         ]),
-        floatingActionButton: floatingButton());
-  }
-}
-
-class floatingButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        //  margin: EdgeInsets.only(right: 5),
-        width: 85,
-        height: 50,
-        child: RawMaterialButton(
-          fillColor: kPrimartColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50),
-          ),
-          elevation: 2,
-          onPressed: () {},
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            Icon(
-              Icons.shopping_bag_outlined,
-              color: Colors.black,
-              size: 25,
-            ),
-            Container(
-              padding: EdgeInsets.all(10),
-              decoration:
-                  BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-              child: Text(
-                '9',
-                style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold),
+        floatingActionButton: Container(
+            //  margin: EdgeInsets.only(right: 5),
+            width: 85,
+            height: 50,
+            child: RawMaterialButton(
+              fillColor: kPrimartColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(50),
               ),
-            )
-          ]),
-        ));
+              elevation: 2,
+              onPressed: () {
+                //     Navigator.of(context).pop();
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => CartPage()));
+              },
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Icon(
+                      Icons.shopping_bag_outlined,
+                      color: Colors.black,
+                      size: 25,
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          color: Colors.white, shape: BoxShape.circle),
+                      child: Text(
+                        purchase.toString(),
+                        // "9",
+                        style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    )
+                  ]),
+            )));
   }
 }
 

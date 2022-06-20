@@ -63,7 +63,7 @@ class FoodItem extends StatelessWidget {
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            " ฿/7 ชิ้น",
+                            ' ฿ /'+food.unit,
                             style: TextStyle(
                                 fontSize: 13, fontWeight: FontWeight.normal),
                           )

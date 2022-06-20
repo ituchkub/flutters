@@ -1,10 +1,13 @@
-import 'dart:ffi';
+import '../../../models/globals.dart';
 
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/constants/colors.dart';
 import 'package:food_delivery_app/models/Food.dart';
+
+import '../../../models/StoreClass.dart';
+import '../../home/home.dart';
 
 class FoodQuantity extends StatefulWidget {
   final Food food;
@@ -17,6 +20,20 @@ class FoodQuantity extends StatefulWidget {
 
 class _FoodQuantityState extends State<FoodQuantity> {
   var forder = 1;
+
+  @override
+  void initState() {
+    super.initState();
+    //asyncInitState();
+  }
+
+  // void asyncInitState() async {
+  //   String A = await LoadData(widget.food.name);
+  //   setState(() {
+  //     forder = int.parse(A);
+  //   });
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,7 +41,7 @@ class _FoodQuantityState extends State<FoodQuantity> {
       height: 40,
       child: Stack(children: [
         Align(
-          alignment: Alignment(-0.25, 0),
+          alignment: Alignment(-0.5, 0),
           child: Container(
             width: 80,
             height: double.maxFinite,
@@ -41,13 +58,59 @@ class _FoodQuantityState extends State<FoodQuantity> {
               ),
               Text(
                 widget.food.price,
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               )
             ]),
           ),
         ),
         Align(
-          alignment: Alignment(0.3, 0),
+          alignment: Alignment(0.5, 0),
+          child: GestureDetector(
+            onTap: () {
+//isLoggedIn = false;
+
+// Map<String, String> map2 = {'Name': widget.food.name, 'Number': forder.toString(), 'Pic': widget.food.imgUrl};
+// PFood.add(map2);
+
+              // SaveData(widget.food.name, forder.toString());
+              widget.food.order = forder;
+
+              listPfoods.add(widget.food);
+
+              purchase = 0;
+              for (var age in listPfoods) {
+                purchase = age.order + purchase;
+              }
+
+              setState(() {
+                purchase = purchase;
+              });
+
+              print(listPfoods);
+
+              Navigator.of(context).pop();
+            },
+            child: Container(
+              width: 80,
+              height: double.maxFinite,
+              decoration: BoxDecoration(
+                  color: Colors.grey.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(30)),
+              child:
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  'สั่งซื้อ',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ]),
+            ),
+          ),
+        ),
+        Align(
+          alignment: Alignment(0, 0),
           child: Container(
             height: double.maxFinite,
             width: 100,
@@ -59,9 +122,9 @@ class _FoodQuantityState extends State<FoodQuantity> {
                   GestureDetector(
                     onTap: () {
                       setState(() {
-                        if (forder > 1) forder = forder - 1;
+                        if (forder > 0) forder = forder - 1;
                       });
-                      print(forder);
+                      //   print(forder);
                     },
                     child: Text(
                       '-',
@@ -83,14 +146,14 @@ class _FoodQuantityState extends State<FoodQuantity> {
                         forder = forder + 1;
                       });
 
-                      print(forder);
+                      // print(forder);
                     },
                     child: Text(
                       '+',
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                  )
+                  ),
                 ]),
           ),
         )

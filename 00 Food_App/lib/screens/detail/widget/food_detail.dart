@@ -8,6 +8,7 @@ import 'food_quantity.dart';
 
 class FoodDetail extends StatelessWidget {
   final Food food;
+
   FoodDetail(this.food);
 
   @override
@@ -78,6 +79,7 @@ class FoodDetail extends StatelessWidget {
               height: 30,
             ),
             Row(
+             
               children: [
                 Text(
                   'รายละเอียด',

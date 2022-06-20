@@ -1,4 +1,5 @@
 import 'Food.dart';
+import 'StoreClass.dart';
 
 class Restaurant {
   String name;
@@ -13,6 +14,10 @@ class Restaurant {
   Restaurant(this.name, this.waitTime, this.distance, this.label, this.logoUrl,
       this.desc, this.score, this.menu);
 
+  static List<Food> generateAllFoods() {
+    return Food.generateRecoomendFoods() + Food.generateRecoomendDrink();
+  }
+
   static Restaurant gennetateRestaurant() {
     return Restaurant(
         'ขนมวงแม่เงา.',
@@ -22,9 +27,9 @@ class Restaurant {
         'assets/images/res_logo.png',
         'ขนมไทยๆ อร่อยถูกใจ สดใหม่ทุกวัน !',
         4.8, {
-      'เมนูแนะนำ': Food.generateRecoomendFoods(),
-      'ขนมไทย': Food.generateRecoomendFoods(),
-      'น้ำสมุนไพร': [],
+      'ขนมไทยโบราณ': Food.generateRecoomendFoods(),
+      // 'ขนมไทย': Food.generateRecoomendFoods(),
+      'น้ำสมุนไพรไทย': Food.generateRecoomendDrink(),
       //'อื่น ๆ': Food.generateRecoomendFoods(),
     });
   }

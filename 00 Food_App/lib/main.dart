@@ -4,6 +4,7 @@ import 'package:food_delivery_app/screens/home/home.dart';
 
 void main() {
   runApp(MyApp());
+  
 }
 
 class MyApp extends StatelessWidget {

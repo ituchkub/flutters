@@ -1,11 +1,11 @@
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/screens/detail/widget/food_img.dart';
-import 'package:food_delivery_app/widgets/custom_app_bart.dart';
 
-import '../../constants/colors.dart';
-import '../../models/Food.dart';
+
+import 'package:food_delivery_app/constants/colors.dart';
+import 'package:food_delivery_app/models/food.dart';
+
 import 'widget/food_detail.dart';
 
 class DetailPage extends StatelessWidget {
@@ -40,6 +40,8 @@ class DetailPage extends StatelessWidget {
             child: GestureDetector(
               onTap: () {
                 Navigator.of(context).pop();
+
+             
               },
               child: Container(
                   padding:
@@ -62,11 +64,12 @@ class DetailPage extends StatelessWidget {
       showUnselectedLabels: false,
       type: BottomNavigationBarType.fixed,
       currentIndex: 0,
-      // onTap: (value) {
-      //   setState(() {
-      //     _selectedIndex = value;
-      //   });
-      // },
+      onTap: (value) {
+ 
+
+
+
+      },
       items: [
         BottomNavigationBarItem(icon: Icon(Icons.apps_outlined), label: ""),
         BottomNavigationBarItem(icon: Icon(Icons.analytics_rounded), label: ""),

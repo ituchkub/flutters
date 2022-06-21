@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_app/constants/colors.dart';
 
 import 'package:food_delivery_app/models/restaurant.dart';
+import 'package:provider/provider.dart';
 
-import '../../models/globals.dart';
+
+import '../../providers/counter_provider.dart';
 
 class CartPage extends StatefulWidget {
   @override
@@ -29,7 +31,7 @@ class _CartPageState extends State<CartPage> {
           Expanded(
             child: ListView.builder(
                 padding: const EdgeInsets.all(0.0),
-                itemCount: listPfoods.length,
+                itemCount: context.watch<Counter>().listfood.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
                       margin: EdgeInsets.only(left: 25, right: 25, top: 10),
@@ -44,7 +46,7 @@ class _CartPageState extends State<CartPage> {
                             width: 90,
                             //  height: 90,
                             child: Image.asset(
-                              listPfoods[index].imgUrl,
+                              context.watch<Counter>().listfood[index].imgUrl,
                               fit: BoxFit.fitHeight,
                             ),
                           ),
@@ -60,7 +62,7 @@ class _CartPageState extends State<CartPage> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          listPfoods[index].name,
+                                          context.watch<Counter>().listfood[index].name,
                                           style: TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.bold,
@@ -72,7 +74,7 @@ class _CartPageState extends State<CartPage> {
                                     Row(
                                       children: [
                                         Text(
-                                          listPfoods[index].price,
+                                          context.watch<Counter>().listfood[index].price,
                                           style: TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.bold),
@@ -84,7 +86,7 @@ class _CartPageState extends State<CartPage> {
                                               fontWeight: FontWeight.normal),
                                         ),
                                         Text(
-                                          listPfoods[index].unit,
+                                          context.watch<Counter>().listfood[index].unit,
                                           style: TextStyle(
                                               fontSize: 13,
                                               fontWeight: FontWeight.normal),
@@ -116,14 +118,14 @@ class _CartPageState extends State<CartPage> {
                                       child: Row(
                                         children: [
                                           Text(
-                                              listPfoods[index]
+                                              context.watch<Counter>().listfood[index]
                                                   .order
                                                   .toString(),
                                               style: TextStyle(
                                                   fontSize: 18,
                                                   fontWeight: FontWeight.bold)),
                                           Text(
-                                            ' '+listPfoods[index].unit,
+                                            ' '+context.watch<Counter>().listfood[index].unit,
                                             style: TextStyle(
                                               fontSize: 18,
                                             ),

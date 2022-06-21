@@ -9,9 +9,11 @@ import 'package:food_delivery_app/models/restaurant.dart';
 import 'package:food_delivery_app/screens/home/widget/food_list.dart';
 import 'package:food_delivery_app/screens/home/widget/food_list_view.dart';
 import 'package:food_delivery_app/screens/home/widget/restaurant_info.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../models/StoreClass.dart';
-import '../../models/globals.dart';
+
+import '../../providers/counter_provider.dart';
 import '../../widgets/custom_app_bart.dart';
 import '../cart/cart.dart';
 
@@ -36,11 +38,11 @@ class _HomePageState extends State<HomePage> {
     //   }
     // }
 
-Timer.periodic(new Duration(milliseconds: 300), (timer) {
-  setState(() {
+// Timer.periodic(new Duration(milliseconds: 300), (timer) {
+//   setState(() {
     
-  });
-});
+//   });
+// });
   }
 
   // void asyncInitState(String Name) async {
@@ -119,7 +121,7 @@ Timer.periodic(new Duration(milliseconds: 300), (timer) {
                       decoration: BoxDecoration(
                           color: Colors.white, shape: BoxShape.circle),
                       child: Text(
-                        purchase.toString(),
+                     context.watch<Counter>().purchase.toString(),
                         // "9",
                         style: TextStyle(
                             fontSize: 18,

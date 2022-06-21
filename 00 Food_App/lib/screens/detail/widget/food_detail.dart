@@ -1,9 +1,8 @@
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/constants/colors.dart';
 
-import '../../../models/Food.dart';
+import 'package:food_delivery_app/models/food.dart';
 import 'food_quantity.dart';
 
 class FoodDetail extends StatelessWidget {

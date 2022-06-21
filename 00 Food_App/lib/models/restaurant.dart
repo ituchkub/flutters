@@ -1,5 +1,5 @@
-import 'Food.dart';
-import 'StoreClass.dart';
+import 'package:food_delivery_app/models/food.dart';
+
 
 class Restaurant {
   String name;

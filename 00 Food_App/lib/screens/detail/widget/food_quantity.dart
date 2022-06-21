@@ -1,18 +1,13 @@
-import '../../../models/globals.dart';
-
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:food_delivery_app/models/food.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/constants/colors.dart';
-import 'package:food_delivery_app/models/Food.dart';
-
-import '../../../models/StoreClass.dart';
-import '../../home/home.dart';
+import 'package:food_delivery_app/providers/counter_provider.dart';
 
 class FoodQuantity extends StatefulWidget {
-  final Food food;
+  final Food foods;
 
-  FoodQuantity(this.food);
+  FoodQuantity(this.foods);
 
   @override
   State<FoodQuantity> createState() => _FoodQuantityState();
@@ -24,15 +19,7 @@ class _FoodQuantityState extends State<FoodQuantity> {
   @override
   void initState() {
     super.initState();
-    //asyncInitState();
   }
-
-  // void asyncInitState() async {
-  //   String A = await LoadData(widget.food.name);
-  //   setState(() {
-  //     forder = int.parse(A);
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +44,7 @@ class _FoodQuantityState extends State<FoodQuantity> {
                 style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
               ),
               Text(
-                widget.food.price,
+                widget.foods.price,
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               )
             ]),
@@ -67,26 +54,14 @@ class _FoodQuantityState extends State<FoodQuantity> {
           alignment: Alignment(0.5, 0),
           child: GestureDetector(
             onTap: () {
-//isLoggedIn = false;
+              context.read<Counter>().purchaseinc(forder);
 
-// Map<String, String> map2 = {'Name': widget.food.name, 'Number': forder.toString(), 'Pic': widget.food.imgUrl};
-// PFood.add(map2);
+              widget.foods.order = forder;
 
-              // SaveData(widget.food.name, forder.toString());
-              widget.food.order = forder;
+              context.read<Counter>().listFoodAdds(widget.foods);
 
-              listPfoods.add(widget.food);
-
-              purchase = 0;
-              for (var age in listPfoods) {
-                purchase = age.order + purchase;
-              }
-
-              setState(() {
-                purchase = purchase;
-              });
-
-              print(listPfoods);
+              // globalfood.add(widget.foods);
+              ///print(context.read<Counter>().purchase);
 
               Navigator.of(context).pop();
             },

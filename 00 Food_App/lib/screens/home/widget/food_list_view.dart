@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/models/restaurant.dart';
 import 'package:food_delivery_app/screens/detail/detail.dart';
@@ -20,24 +19,25 @@ class FoodListView extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 25),
       child: PageView(
         controller: pageController,
-        onPageChanged: (index) => callback(index),
+        onPageChanged: (index) => {
+          
+        
+          
+          callback(index)},
         children: category
             .map((e) => ListView.separated(
                 padding: EdgeInsets.zero,
                 itemBuilder: (context, index) => GestureDetector(
                     onTap: () {
-                     //    Navigator.of(context).pop();
+                      //    Navigator.of(context).pop();
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => DetailPage(
                               restaurant.menu[category[selected]]![index])));
-
-
-                              
                     },
                     child:
                         FoodItem(restaurant.menu[category[selected]]![index])),
                 separatorBuilder: (_, index) => SizedBox(
-                      height: 15,
+                      height: 10,
                     ),
                 itemCount: restaurant.menu[category[selected]]!.length))
             .toList(),

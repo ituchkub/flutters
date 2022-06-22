@@ -44,8 +44,8 @@ class _FoodQuantityState extends State<FoodQuantity> {
                 style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
               ),
               Text(
-                widget.foods.price,
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                widget.foods.price.toString(),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               )
             ]),
           ),
@@ -54,7 +54,7 @@ class _FoodQuantityState extends State<FoodQuantity> {
           alignment: Alignment(0.5, 0),
           child: GestureDetector(
             onTap: () {
-              context.read<Counter>().purchaseinc(forder);
+             // context.read<Counter>().purchaseinc();
 
               widget.foods.order = forder;
 
@@ -74,7 +74,7 @@ class _FoodQuantityState extends State<FoodQuantity> {
               child:
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 SizedBox(
-                  width: 20,
+                  width: 25,
                 ),
                 Text(
                   'สั่งซื้อ',
@@ -88,7 +88,7 @@ class _FoodQuantityState extends State<FoodQuantity> {
           alignment: Alignment(0, 0),
           child: Container(
             height: double.maxFinite,
-            width: 100,
+            width: 80,
             decoration: BoxDecoration(
                 color: kPrimartColor, borderRadius: BorderRadius.circular(30)),
             child: Row(

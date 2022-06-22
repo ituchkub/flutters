@@ -11,7 +11,7 @@ class FoodImg extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 250,
+        height: 220,
         child: Stack(
           children: [
             Column(
@@ -33,8 +33,8 @@ class FoodImg extends StatelessWidget {
               alignment: Alignment.center,
               child: Container(
                   margin: EdgeInsets.all(15),
-                  width: 250,
-                  height: 250,
+                  width: 220,
+                  height: 220,
                   decoration: BoxDecoration(shape: BoxShape.circle, boxShadow: [
                     BoxShadow(
                         color: Colors.grey.withOpacity(0.3),

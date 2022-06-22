@@ -16,8 +16,8 @@ class FoodList extends StatelessWidget {
     final category = restaurant.menu.keys.toList();
 
     return Container(
-        height: 100,
-        padding: EdgeInsets.symmetric(vertical: 30),
+        height: 70,
+        padding: EdgeInsets.symmetric(vertical: 15),
         child: ListView.separated(
             scrollDirection: Axis.horizontal,
             padding: EdgeInsets.symmetric(horizontal: 25),

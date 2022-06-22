@@ -9,7 +9,7 @@ class RestauranInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(top: 25),
+        margin: EdgeInsets.only(top: 15,bottom: 10),
         padding: EdgeInsets.symmetric(horizontal: 25),
         child: Column(
           children: [

@@ -27,7 +27,7 @@ class DetailPage extends StatelessWidget {
             //   leftCallback: () => Navigator.of(context).pop(),
             // ),
             SizedBox(
-              height: 50,
+              height: 40,
             ),
             FoodImg(food),
             FoodDetail(food),

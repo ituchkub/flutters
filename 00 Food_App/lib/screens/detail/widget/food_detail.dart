@@ -54,7 +54,7 @@ class FoodDetail extends StatelessWidget {
               height: 10,
             ),
             Container(
-              height: 100,
+              height: 90,
               child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) => Container(
@@ -66,7 +66,7 @@ class FoodDetail extends StatelessWidget {
                         child: Column(children: [
                           Image.asset(
                             food.ingredients[index].values.first,
-                            width: 52,
+                            width: 45,
                           ),
                           Text(food.ingredients[index].keys.first)
                         ]),

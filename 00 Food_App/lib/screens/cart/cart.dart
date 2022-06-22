@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:food_delivery_app/constants/colors.dart';
-
 import 'package:food_delivery_app/models/restaurant.dart';
 import 'package:provider/provider.dart';
-
-
-import '../../providers/counter_provider.dart';
+import 'package:food_delivery_app/providers/counter_provider.dart';
 
 class CartPage extends StatefulWidget {
   @override
@@ -21,20 +19,107 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          CustomAppBars(),
-          SizedBox(
-            height: 10,
-          ),
-          Expanded(
-            child: ListView.builder(
-                padding: const EdgeInsets.all(0.0),
-                itemCount: context.watch<Counter>().listfood.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                      margin: EdgeInsets.only(left: 25, right: 25, top: 10),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            CustomAppBars(),
+            SizedBox(
+              height: 10,
+            ),
+            Expanded(
+              child: cartList(),
+            ),
+            Container(
+              height: 50,
+              color: kBackground,
+            )
+          ],
+        ),
+        floatingActionButton: (context.watch<Counter>().listfood.length == 0)
+            ? Center()
+            : Container(
+                margin: EdgeInsets.only(right: 10, bottom: 10),
+                //alignment: Alignment.,
+                width: 200,
+                height: 50,
+                child: RawMaterialButton(
+                  fillColor: kPrimartColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  elevation: 2,
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    context.read<Counter>().resetall();
+                  },
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Icon(
+                          Icons.shopping_bag_outlined,
+                          color: Colors.black,
+                          size: 25,
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Text(
+                            " จ่ายเงิน " +
+                                context.watch<Counter>().AllP.toString() +
+                                " บาท ",
+                            // "9",
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        )
+                      ]),
+                )));
+  }
+}
+
+class cartList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return (context.watch<Counter>().listfood.length == 0)
+        ? Center(
+            child: Text(
+            'ไม่พบรายการสินค้าในตะกร้า',
+            style: TextStyle(fontSize: 20),
+          ))
+        : ListView.builder(
+            padding: EdgeInsets.all(0.0),
+            itemCount: context.watch<Counter>().listfood.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                padding: EdgeInsets.only(left: 20, right: 10, top: 10),
+                child: Slidable(
+                  key: ValueKey(index),
+                  endActionPane: ActionPane(
+                    //  dismissible: DismissiblePane(onDismissed: () {}),
+                    motion: BehindMotion(),
+                    extentRatio: 0.25,
+
+                    children: [
+                      SlidableAction(
+                        onPressed: (BuildContext context) {
+                          context.read<Counter>().listFoodRemove(index);
+                        },
+                        flex: 1,
+
+                        borderRadius: BorderRadius.circular(30),
+                        //    backgroundColor: kBackground,
+                        foregroundColor: Colors.red[400],
+                        icon: Icons.delete,
+                        label: 'Delete',
+                      ),
+                    ],
+                  ),
+                  child: Container(
+                      margin: EdgeInsets.only(right: 10),
                       height: 90,
                       decoration: BoxDecoration(
                           color: Colors.white,
@@ -42,12 +127,20 @@ class _CartPageState extends State<CartPage> {
                       child: Row(
                         children: [
                           Container(
-                            padding: EdgeInsets.all(5),
+                            padding: EdgeInsets.all(7),
+
                             width: 90,
+
                             //  height: 90,
-                            child: Image.asset(
-                              context.watch<Counter>().listfood[index].imgUrl,
-                              fit: BoxFit.fitHeight,
+                            child: Container(
+                              padding: EdgeInsets.all(3),
+                              decoration: BoxDecoration(
+                                  color: kPrimartColor,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Image.asset(
+                                context.watch<Counter>().listfood[index].imgUrl,
+                                fit: BoxFit.fitHeight,
+                              ),
                             ),
                           ),
                           Expanded(
@@ -62,7 +155,10 @@ class _CartPageState extends State<CartPage> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          context.watch<Counter>().listfood[index].name,
+                                          context
+                                              .watch<Counter>()
+                                              .listfood[index]
+                                              .name,
                                           style: TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.bold,
@@ -74,20 +170,30 @@ class _CartPageState extends State<CartPage> {
                                     Row(
                                       children: [
                                         Text(
-                                          context.watch<Counter>().listfood[index].price,
+                                          context
+                                              .watch<Counter>()
+                                              .listfood[index]
+                                              .price
+                                              .toString(),
                                           style: TextStyle(
+                                              color: kPrimartColor,
                                               fontSize: 16,
-                                              fontWeight: FontWeight.bold),
+                                              fontWeight: FontWeight.normal),
                                         ),
                                         Text(
                                           ' ฿ /',
                                           style: TextStyle(
+                                              color: kPrimartColor,
                                               fontSize: 13,
                                               fontWeight: FontWeight.normal),
                                         ),
                                         Text(
-                                          context.watch<Counter>().listfood[index].unit,
+                                          context
+                                              .watch<Counter>()
+                                              .listfood[index]
+                                              .unit,
                                           style: TextStyle(
+                                              color: kPrimartColor,
                                               fontSize: 13,
                                               fontWeight: FontWeight.normal),
                                         )
@@ -100,9 +206,9 @@ class _CartPageState extends State<CartPage> {
                             alignment: Alignment(0, 0),
                             child: Container(
                               margin: EdgeInsets.symmetric(
-                                  vertical: 20, horizontal: 15),
+                                  vertical: 15, horizontal: 15),
                               height: double.maxFinite,
-                              width: 70,
+                              // width: 70,
                               decoration: BoxDecoration(
                                   //color: kPrimartColor,
                                   borderRadius: BorderRadius.circular(30)),
@@ -118,14 +224,21 @@ class _CartPageState extends State<CartPage> {
                                       child: Row(
                                         children: [
                                           Text(
-                                              context.watch<Counter>().listfood[index]
+                                              context
+                                                  .watch<Counter>()
+                                                  .listfood[index]
                                                   .order
                                                   .toString(),
                                               style: TextStyle(
                                                   fontSize: 18,
-                                                  fontWeight: FontWeight.bold)),
+                                                  fontWeight:
+                                                      FontWeight.normal)),
                                           Text(
-                                            ' '+context.watch<Counter>().listfood[index].unit,
+                                            ' ' +
+                                                context
+                                                    .watch<Counter>()
+                                                    .listfood[index]
+                                                    .unit,
                                             style: TextStyle(
                                               fontSize: 18,
                                             ),
@@ -137,16 +250,10 @@ class _CartPageState extends State<CartPage> {
                             ),
                           )
                         ],
-                      ));
-                }),
-          ),
-          Container(
-            height: 50,
-            color: kBackground,
-          )
-        ],
-      ),
-    );
+                      )),
+                ),
+              );
+            });
   }
 }
 
@@ -164,6 +271,7 @@ class CustomAppBars extends StatelessWidget {
           GestureDetector(
             onTap: () {
               Navigator.of(context).pop(this);
+
               //  Navigator.of(context)
               //       .push(MaterialPageRoute(builder: (context) => HomePage()));
             },
@@ -188,7 +296,7 @@ class CustomAppBars extends StatelessWidget {
             ),
             child: Text(
               'รายการสินค้าในตะกร้า',
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
             ),
           )
         ]),
@@ -196,3 +304,5 @@ class CustomAppBars extends StatelessWidget {
     );
   }
 }
+
+void doNothing(BuildContext context) {}

@@ -6,7 +6,7 @@ class Food {
   double distance; 
   double score;
   String cal;
-  String price;
+  int price;
     String unit;
     
   num quantity;
@@ -40,7 +40,7 @@ class Food {
           4.8,
           5,
           ' 100 kcal',
-          "10","แก้ว",
+          10,"แก้ว",
           20,
           [
             {'ดอกอัญชัน': 'assets/images/w01.png'},
@@ -57,7 +57,7 @@ class Food {
           4.8,
           5,
           ' 100 kcal',
-          "10","แก้ว",
+          10,"แก้ว",
           20,
           [
             {'ใบเตยหอม': 'assets/images/w02.png'},
@@ -74,7 +74,7 @@ class Food {
           4.8,
           5,
           ' 100 kcal',
-          "10","แก้ว",
+          10,"แก้ว",
           20,
           [
             {'ดอกกระเจียบสด': 'assets/images/w03.png'},
@@ -91,7 +91,7 @@ class Food {
           4.8,
           5,
           ' 100 kcal',
-           "10","แก้ว",
+           10,"แก้ว",
           20,
           [
             {'ดอกเก็กฮวย': 'assets/images/w04.png'},
@@ -113,7 +113,7 @@ class Food {
           4.8,
           5,
           ' 100 kcal',
-          "20","ชุด",
+          20,"ชุด",
           20,
           [
             {'แป้ง': 'assets/images/in01.png'},
@@ -130,7 +130,7 @@ class Food {
           4.8,
           5,
           ' 100 kcal',
-          "20","ชุด",
+          20,"ชุด",
           20,
           [
             {'แป้ง': 'assets/images/in01.png'},
@@ -147,7 +147,7 @@ class Food {
           4.8,
           5,
           ' 100 kcal',
-           "20","ชุด",
+           20,"ชุด",
           20,
           [
             {'แป้ง': 'assets/images/in01.png'},
@@ -164,7 +164,7 @@ class Food {
           4.8,
           5,
           ' 100 kcal',
-            "20","ชุด",
+            20,"ชุด",
           20,
           [
             {'แป้ง': 'assets/images/in01.png'},

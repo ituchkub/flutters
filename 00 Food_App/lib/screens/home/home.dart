@@ -31,25 +31,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-
-    // for (var age in restaurant.menu.values) {
-    //   for (var ages in age) {
-    //     asyncInitState(ages.name);
-    //   }
-    // }
-
-// Timer.periodic(new Duration(milliseconds: 300), (timer) {
-//   setState(() {
-    
-//   });
-// });
   }
-
-  // void asyncInitState(String Name) async {
-  //   purchase = int.parse(await LoadData(Name)) + purchase;
-
-  //   setState(() {});
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -62,40 +44,43 @@ class _HomePageState extends State<HomePage> {
             setState(() {
               selected = index;
             });
-            pageController.jumpTo(index.toDouble());
+
+            pageController.jumpToPage(index);
           }, restaurant),
           Expanded(
               child: FoodListView(selected, (int index) {
             setState(() {
               selected = index;
-            });
+            })
+            ;
           }, pageController, restaurant)),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 25),
             height: 60,
             child: SmoothPageIndicator(
-                controller: pageController,
-                count: restaurant.menu.length,
-                effect: CustomizableEffect(
-                    dotDecoration: DotDecoration(
-                        width: 8,
-                        height: 8,
-                        color: Colors.grey.withOpacity(0.5),
-                        borderRadius: BorderRadius.circular(8)),
-                    activeDotDecoration: DotDecoration(
-                      width: 10,
-                      height: 10,
-                      color: kBackground,
-                      borderRadius: BorderRadius.circular(8),
-                      dotBorder:
-                          DotBorder(color: kPrimartColor, padding: 2, width: 2),
-                    )),
-                onDotClicked: (index) => pageController.jumpToPage(index)),
+              controller: pageController,
+              count: restaurant.menu.length,
+              effect: CustomizableEffect(
+                  dotDecoration: DotDecoration(
+                      width: 8,
+                      height: 8,
+                      color: Colors.grey.withOpacity(0.5),
+                      borderRadius: BorderRadius.circular(8)),
+                  activeDotDecoration: DotDecoration(
+                    width: 10,
+                    height: 10,
+                    color: kBackground,
+                    borderRadius: BorderRadius.circular(8),
+                    dotBorder:
+                        DotBorder(color: kPrimartColor, padding: 2, width: 2),
+                  )),
+              // onDotClicked: (index) => pageController.jumpToPage(index)
+            ),
           )
         ]),
         floatingActionButton: Container(
             //  margin: EdgeInsets.only(right: 5),
-            width: 85,
+            width: 80,
             height: 50,
             child: RawMaterialButton(
               fillColor: kPrimartColor,
@@ -114,23 +99,26 @@ class _HomePageState extends State<HomePage> {
                     Icon(
                       Icons.shopping_bag_outlined,
                       color: Colors.black,
-                      size: 25,
+                      size: 22,
                     ),
                     Container(
                       padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
                           color: Colors.white, shape: BoxShape.circle),
                       child: Text(
-                     context.watch<Counter>().purchase.toString(),
+                        context.watch<Counter>().purchase.toString(),
                         // "9",
                         style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 16,
                             color: Colors.black,
                             fontWeight: FontWeight.bold),
                       ),
                     )
                   ]),
-            )));
+            ))
+            
+            
+            );
   }
 }
 

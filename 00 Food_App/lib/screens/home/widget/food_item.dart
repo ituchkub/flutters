@@ -10,7 +10,7 @@ class FoodItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 110,
+        height: 100,
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(20)),
         child: Row(
@@ -29,7 +29,7 @@ class FoodItem extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                  padding: EdgeInsets.only(top: 20, left: 10, right: 10),
+                  padding: EdgeInsets.only(top: 15, left: 10, right: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -56,7 +56,7 @@ class FoodItem extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            food.price,
+                            food.price.toString(),
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),

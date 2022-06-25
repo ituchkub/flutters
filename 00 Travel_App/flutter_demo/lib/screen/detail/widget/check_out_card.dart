@@ -63,7 +63,7 @@ class CusNavigationBar extends StatelessWidget {
                         MapLauncher.showMarker(
                             mapType: MapType.google,
                             coords: Coords(place.Lat,place.Long),
-                            title: 'title');
+                            title:place.fulltitle);
                       }
 
                   

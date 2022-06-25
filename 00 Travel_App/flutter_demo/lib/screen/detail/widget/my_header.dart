@@ -22,7 +22,7 @@ class MyHeader extends StatelessWidget {
             itemBuilder: (context, index) {
               //  var travel = _list[index];
               return Container(
-                width: 370,
+                width: 340,
                 child: Image.asset(imageUrl[index], fit: BoxFit.cover),
               );
             },

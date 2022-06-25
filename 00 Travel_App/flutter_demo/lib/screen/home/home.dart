@@ -20,6 +20,7 @@ class _HomePageScreenState extends State<HomePage> {
         backgroundColor: Theme.of(context).backgroundColor,
         appBar: buildAppBar(context),
         body: SingleChildScrollView(
+          
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           //    SearchInput(),
@@ -44,11 +45,18 @@ class _HomePageScreenState extends State<HomePage> {
           SizedBox(
             height: 20,
           ),
-          CategoryList(),
+          CategoryList(_selectedIndex, (int index) {
+            setState(() {
+              _selectedIndex = index;
+
+            //  print(_selectedIndex);
+            })
+            ;
+          }),
           SizedBox(
             height: 10,
           ),
-          PlaceStaggerdFridView()
+          PlaceStaggerdFridView(_selectedIndex)
         ])),
         //   bottomNavigationBar: buildBottomNavigationBar()
     

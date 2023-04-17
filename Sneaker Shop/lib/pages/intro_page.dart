@@ -39,7 +39,7 @@ class InTroPage extends StatelessWidget {
               onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => HomePage(),
+                    builder: (context) => const HomePage(),
                   )),
               child: Container(
                 decoration: BoxDecoration(
